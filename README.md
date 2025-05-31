@@ -1,6 +1,7 @@
 # Adversarial Examples in the Physical World - Reproduction
 
-![Project Banner](./images/banner_placeholder.png)
+<img src="./images/adveserial_example_FGSM.png" alt="Project Banner" width="80%">
+
 
 This repository contains a PyTorch-based partial reproduction and analysis of the paper:
 
@@ -24,7 +25,8 @@ The goals include:
 
 ## 🖼️ Illustrative Examples
 
-![Accuracy Comparison](./images/accuracy_comparison.png) 
+<img src="./images/model_evaluation.png" alt="Project Banner" width="40%">
+
 
 ---
 
