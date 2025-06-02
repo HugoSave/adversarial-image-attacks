@@ -38,7 +38,7 @@ The goals include:
 This project is fully compatible with Google Colab for easy setup and GPU acceleration.
 
 1. Open the Colab notebook here:  
-   [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/yourusername/your-repo/blob/main/notebook.ipynb)
+   [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/HugoSave/adversarial-image-attacks/blob/main/AdversarialAttacks.ipynb)
 
 2. Follow the notebook cells step-by-step:  
    - Install dependencies  
