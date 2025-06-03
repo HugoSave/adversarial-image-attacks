@@ -36,34 +36,32 @@ We train adversarial attack samples against two models: **resnet18_cifar10** and
 We produce attack samples by FGSM and I-FGSM algorithms:
 
 - **FGSM (Fast Gradient Sign Method):**  
-  FGSM is a single-step attack that perturbs the input image in the direction of the gradient of the loss with respect to the input. The adversarial example $ x_{\text{adv}} $ is generated as:
+  FGSM is a single-step attack that perturbs the input image in the direction of the gradient of the loss with respect to the input. The adversarial example $x_{\text{adv}}$ is generated as:
   
-  $$
+```math
 x_{\text{adv}} = x + \epsilon \cdot \text{sign}(\nabla_x J(\theta, x, y))
-$$
+```
   
   where:
-  - $ x $ is the original input image,
-  - $ y $ is the true label,
-  - $ \theta $ are the model parameters,
-  - $ J(\theta, x, y) $ is the loss function,
-  - $ \epsilon $ controls the magnitude of the perturbation.
+  - $x$ is the original input image,
+  - $y$ is the true label,
+  - $\theta$ are the model parameters,
+  - $J(\theta, x, y)$ is the loss function,
+  - $\epsilon$ controls the magnitude of the perturbation.
 
    See the original paper: [Explaining and Harnessing Adversarial Examples (Goodfellow et al., 2014)](https://arxiv.org/abs/1412.6572)
 
 - **I-FGSM (Iterative Fast Gradient Sign Method):**  
-  I-FGSM applies FGSM multiple times with a small step size, clipping the result after each step to ensure the perturbation stays within the allowed range. The adversarial example after $ N $ iterations is:
-  
-  $$
-x^{(0)}_{\text{adv}} = x
-$$
-  $$
+  I-FGSM applies FGSM multiple times with a small step size, clipping the result after each step to ensure the perturbation stays within the allowed range. The adversarial example after $N$ iterations is:
+
+```math
 x^{(n+1)}_{\text{adv}} = \text{Clip}_{x, \epsilon} \left\{ x^{(n)}_{\text{adv}} + \alpha \cdot \text{sign} \left( \nabla_x J(\theta, x^{(n)}_{\text{adv}}, y) \right) \right\}
-$$
+```
   
   where:
-  - $ \alpha $ is the step size for each iteration,
-  - $ \text{Clip}_{x, \epsilon} $ ensures the adversarial example stays within an $ \epsilon $-ball of the original input $ x $.
+  - $x^{(0)}_{\text{adv}} = x$
+  - $\alpha$ is the step size for each iteration,
+  - $\text{Clip}_{x, \epsilon}$ ensures the adversarial example stays within an $\epsilon$-ball of the original input $x$.
 
   See the original paper: [Adversarial Examples in the Physical World (Kurakin et al., 2017)](https://arxiv.org/abs/1607.02533)
 
@@ -83,8 +81,8 @@ Each group of bars shows results for a specific model. The color of the bars ind
 
 
 The hyperparameters used for this run were:
-- **Epsilon, \(\epsilon\) = 4** (in image space [0, 255])
-- **Alpha \(\alpha\) = 1** (in image space [0, 255], for I-FGSM step size)
+- **Epsilon, $\epsilon$ = 4** (in image space [0, 255])
+- **Alpha $\alpha$ = 1** (in image space [0, 255], for I-FGSM step size)
 - **Iterations for I-FGSM = 10**
 
 Note: Since the network inputs are normalized, both epsilon and alpha are scaled accordingly to match the normalized data range during attack generation.
